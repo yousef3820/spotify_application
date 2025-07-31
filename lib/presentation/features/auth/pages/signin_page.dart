@@ -10,6 +10,7 @@ import 'package:flutter_spotify_application_1/domain/usecases/sigin_usecase.dart
 import 'package:flutter_spotify_application_1/presentation/features/auth/bloc/cubit/password_visibility_cubit.dart';
 import 'package:flutter_spotify_application_1/presentation/features/auth/pages/signup_page.dart'
     show SignupPage;
+import 'package:flutter_spotify_application_1/presentation/features/favourites/bloc/favourites_cubit_cubit.dart';
 import 'package:flutter_spotify_application_1/presentation/features/home/pages/home.dart';
 import 'package:flutter_spotify_application_1/serviceLocator.dart';
 import 'package:flutter_svg/svg.dart';
@@ -145,7 +146,8 @@ class SigninPage extends StatelessWidget {
                         );
                         ScaffoldMessenger.of(context).showSnackBar(snackbar);
                       },
-                      (r) {
+                      (r) async {
+                        await context.read<FavoritesCubit>().loadFavorites();
                         Navigator.pushAndRemoveUntil(
                           context,
                           MaterialPageRoute(builder: (context) => HomePage()),

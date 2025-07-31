@@ -75,4 +75,11 @@ class SongPlayerCubit extends Cubit<SongPlayerState> {
       newPosition >= Duration.zero ? newPosition : Duration.zero,
     );
   }
+  void stopMusic() async {
+  await audioPlayer.stop();
+  currentSong = null;
+  songPostition = Duration.zero;
+  songDuration = Duration.zero;
+  emit(SongPlayerInitial());
+}
 }

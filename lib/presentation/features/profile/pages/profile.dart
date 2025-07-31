@@ -82,6 +82,9 @@ class ProfilePage extends StatelessWidget {
                   icon: Icons.logout,
                   label: "Logout",
                   onTap: () async {
+                    context
+                        .read<SongPlayerCubit>()
+                        .stopMusic(); // Stop the song
                     await FirebaseAuth.instance.signOut();
                     Navigator.pushAndRemoveUntil(
                       context,

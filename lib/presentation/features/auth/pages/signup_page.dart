@@ -49,6 +49,7 @@ class SignupPage extends StatelessWidget {
                 BlocBuilder<PasswordVisibilityCubit, bool>(
                   builder: (context, state) {
                     return TextField(
+                      obscureText: state,
                       cursorColor: AppColors.primary,
                       decoration: InputDecoration(
                         hintText: "Password",

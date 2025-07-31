@@ -42,7 +42,7 @@ class MyApp extends StatelessWidget {
             sl<AddFavoriteUseCase>(),
             sl<RemoveFavoriteUseCase>(),
             sl<GetSongByUrlUseCase>(),
-          )..loadFavorites(),
+          )
         ),
       ],
       child: BlocBuilder<ThemeCubit, ThemeMode>(
